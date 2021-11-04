@@ -8,14 +8,17 @@ const dbConn = async () => {
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useCreateIndex: true,
         useFindAndModify: false,
       },
       () => {
-        console.log("Connected to the Database");
+        console.log(`Connected to the Database`);
       }
     );
   } catch (err) {
     console.log(err);
+    // Exit Process with failure
+    process.exit(1);
   }
 };
 
